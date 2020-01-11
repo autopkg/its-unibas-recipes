@@ -22,7 +22,7 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>IntellijURLProvider</string>
+            <string>com.facebook.autopkg.download.intellij/IntellijURLProvider</string>
         </dict>
         <dict>
             <key>Processor</key>
