@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of Spartan from www.wavefun.com</string>
+	<key>Identifier</key>
+	<string>com.github.its-unibas.download.spartan</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Spartan</string>
+		<key>SEARCH_PATTERN</key>
+		<string>"(http:\/\/downloads\.wavefun\.com\/Mac\/Spartan..V...\.dmg)".*Macintosh.*v\..\..\..</string>
+		<key>SEARCH_URL</key>
+		<string>https://www.wavefun.com/downloads</string>
+		<key>SEARCH_PATTERN2</key>
+		<string>"http:\/\/downloads\.wavefun\.com\/Mac\/Spartan(..)V...\.dmg".*Macintosh.*v\..\..\..</string>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>%SEARCH_PATTERN%</string>
+				<key>url</key>
+				<string>%SEARCH_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%match%</string>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>%SEARCH_PATTERN2%</string>
+				<key>url</key>
+				<string>%SEARCH_URL%</string>
+				<key>result_output_var_name</key>
+				<string>MAJOR</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%/%NAME% %MAJOR%.app</string>
+            </dict>
+            
+        </dict>
+	</array>
+</dict>
+</plist>
