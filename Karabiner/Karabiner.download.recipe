@@ -10,8 +10,10 @@
 	<dict>
 		<key>NAME</key>
 		<string>Karabiner</string>
-		<key>SPARKLE_FEED_URL</key>
-		<string>https://pqrs.org/osx/karabiner/files/appcast.xml</string>
+		<key>SEARCH_PATTERN</key>
+        <string>href="(https:\/\/github\.com\/pqrs-org\/Karabiner-Elements\/releases\/download\/.*\/Karabiner-Elements-.*\.dmg)"</string>
+        <key>SEARCH_URL</key>
+        <string>https://karabiner-elements.pqrs.org</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
@@ -20,17 +22,21 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>appcast_url</key>
-				<string>%SPARKLE_FEED_URL%</string>
+				<key>re_pattern</key>
+				<string>%SEARCH_PATTERN%</string>
+				<key>url</key>
+				<string>%SEARCH_URL%</string>
 			</dict>
 			<key>Processor</key>
-			<string>SparkleUpdateInfoProvider</string>
+			<string>URLTextSearcher</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>url</key>
+				<string>%match%</string>
 				<key>filename</key>
-				<string>%NAME%-%version%.dmg</string>
+				<string>%NAME%.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -43,7 +49,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/Karabiner.sparkle_guided.pkg</string>
+				<string>%pathname%/Karabiner-Elements.sparkle_guided.pkg</string>
 				<key>requirement</key>
 				<string>identifier "org.pqrs.Karabiner" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = G43BCU2T37</string>
 			</dict>

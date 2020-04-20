@@ -48,7 +48,7 @@
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/unpacked</string>
 				<key>flat_pkg_path</key>
-				<string>%pathname%/Karabiner.sparkle_guided.pkg</string>
+				<string>%pathname%/Karabiner-Elements.sparkle_guided.pkg</string>
 				<key>purge_destination</key>
 				<true/>
 			</dict>
@@ -70,7 +70,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/pkgpayloadunpacked/Applications/Karabiner.app/Contents/Info.plist</string>
+				<string>%RECIPE_CACHE_DIR%/pkgpayloadunpacked/Applications/Karabiner-Elements.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleVersion</string>
 			</dict>
