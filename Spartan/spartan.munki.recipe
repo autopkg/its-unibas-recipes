@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Description</key>
+		<string>Downloads the latest version of Spartan from www.wavefun.com and imports it into Munki
+			The Versioner Processor overwrites the version defined in the download recipe because the CFBundleVersion is better for munki to process. 
+			With the CFBundleShortVersionString as display name the full version name will be visible in the Managed Software Centre.
+		</string>
+		<key>Identifier</key>
+		<string>com.github.its-unibas.munki.spartan</string>
+		<key>Input</key>
+		<dict>
+			<key>NAME</key>
+			<string>Spartan</string>
+			<key>MUNKI_REPO_SUBDIR</key>
+			<string>apps/spartan</string>
+			<key>pkginfo</key>
+			<dict>
+				<key>name</key>
+				<string>%NAME%</string>
+				<key>catalogs</key>
+				<array>
+					<string>testing</string>
+				</array>
+				<key>category</key>
+				<string>Productivity</string>
+				<key>description</key>
+				<string>Desktop application for chemistry research and academia.</string>
+				<key>developer</key>
+				<string>Wavefunction Inc.</string>
+				<key>minimum_os_version</key>
+				<string>10.12.0</string>
+				<key>unattended_install</key>
+				<true />
+			</dict>
+		</dict>
+		<key>MiniumumVersion</key>
+		<string>1.0</string>
+		<key>ParentRecipe</key>
+		<string>com.github.its-unibas.download.spartan</string>
+		<key>Process</key>
+		<array>
+			<dict>
+				<key>Arguments</key>
+				<dict>
+					<key>input_plist_path</key>
+					<string>%pathname%/%app_name%/Contents/Info.plist</string>
+					<key>plist_version_key</key>
+					<string>CFBundleVersion</string>
+				</dict>
+				<key>Processor</key>
+				<string>Versioner</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<dict>
+					<key>plist_keys</key>
+					<dict>
+						<key>CFBundleShortVersionString</key>
+						<string>display_name</string>
+					</dict>
+
+					<key>info_path</key>
+					<string>%pathname%/%app_name%/Contents/Info.plist</string>
+				</dict>
+				<key>Processor</key>
+				<string>PlistReader</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<dict>
+					<key>additional_pkginfo</key>
+					<dict>
+						<key>display_name</key>
+						<string>%display_name%</string>
+						<key>version</key>
+						<string>%version%</string>
+					</dict>
+				</dict>
+				<key>Processor</key>
+				<string>MunkiPkginfoMerger</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<dict>
+					<key>pkg_path</key>
+					<string>%pathname%</string>
+					<key>repo_subdirectory</key>
+					<string>%MUNKI_REPO_SUBDIR%</string>
+				</dict>
+				<key>Processor</key>
+				<string>MunkiImporter</string>
+			</dict>
+		</array>
+	</dict>
+</plist>
