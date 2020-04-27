@@ -8,10 +8,6 @@
 	<string>com.github.its-unibas.munki.spartan</string>
 	<key>Input</key>
 	<dict>
-		<key>NAME</key>
-		<string>Spartan</string>
-		<key>SEARCH_URL</key>
-		<string>https://www.wavefun.com/downloads</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/spartan</string>
 		<key>pkginfo</key>
