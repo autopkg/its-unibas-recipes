@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latext version of F5transkript</string>
+	<string>Downloads the latest version of F5transkript.</string>
 	<key>Identifier</key>
 	<string>com.github.its-unibas.download.F5transkript</string>
 	<key>Input</key>
