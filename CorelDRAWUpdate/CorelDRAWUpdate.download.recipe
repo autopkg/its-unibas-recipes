@@ -9,7 +9,7 @@
 	<key>Input</key>
 	<dict>
 		<key>BASE_VERSION</key>
-		<string>2019</string>
+		<string>2020</string>
 		<key>NAME</key>
 		<string>CorelDRAW Update</string>
 		<key>SEARCH_PATTERN</key>
@@ -90,7 +90,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload/CorelDRAW/CorelDRAW 2019.app/Contents/Info.plist</string>
+				<string>%RECIPE_CACHE_DIR%/payload/CorelDRAW/CorelDRAW %BASE_VERSION%.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleShortVersionString</string>
 			</dict>
