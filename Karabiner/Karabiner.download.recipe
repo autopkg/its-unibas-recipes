@@ -13,7 +13,9 @@
 		<key>SEARCH_PATTERN</key>
         <string>href="(https:\/\/github\.com\/pqrs-org\/Karabiner-Elements\/releases\/download\/.*\/Karabiner-Elements-.*\.dmg)"</string>
         <key>SEARCH_URL</key>
-        <string>https://karabiner-elements.pqrs.org</string>
+		<string>https://karabiner-elements.pqrs.org</string>
+		<key>pkg_name</key>
+		<string>Karabiner-Elements.pkg</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
@@ -49,9 +51,13 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/Karabiner-Elements.sparkle_guided.pkg</string>
-				<key>requirement</key>
-				<string>identifier "org.pqrs.Karabiner" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = G43BCU2T37</string>
+				<string>%pathname%/%pkg_name%</string>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Installer: Fumihiko Takayama (G43BCU2T37)</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
