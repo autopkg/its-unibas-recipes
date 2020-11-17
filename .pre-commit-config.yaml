@@ -15,6 +15,5 @@ repos:
     rev: v1.8.0
     hooks:
     - id: check-autopkg-recipes
-      args: ['--recipe-prefix', 'com.github.its-unibas.']
     - id: forbid-autopkg-overrides
     - id: forbid-autopkg-trust-info
