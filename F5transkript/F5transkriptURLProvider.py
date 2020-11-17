@@ -4,10 +4,9 @@
 from __future__ import absolute_import, print_function
 
 import re
+import sys
 
 from autopkglib import URLGetter
-
-import sys
 
 try:
     # import for Python 3
@@ -18,7 +17,7 @@ except ImportError:
 
 
 BASE_URL = "https://www.audiotranskription.de"
-REGEX = '(/audot/downloadfile\.php\?k=\d\&amp;d=\d{2}\&amp;l=de\&amp;c=.{5,15})\\"\>MAC OS \(F5\) \[v7\]'
+REGEX = r'(/audot/downloadfile\.php\?k=\d\&amp;d=\d{2}\&amp;l=de\&amp;c=.{5,15})\\"\>MAC OS \(F5\) \[v7\]'
 
 __all__ = ["F5transkriptURLProvider"]
 
