@@ -16,7 +16,7 @@
         <key>NAME</key>
         <string>MAXQDA</string>
         <key>URL</key>
-        <string>http://www.maxqda.de/updates/%VERSION%/MAXQDA%VERSION%.dmg</string>
+        <string>https://www.maxqda.de/updates/%VERSION%/MAXQDA%VERSION%.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.2</string>
