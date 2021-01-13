@@ -10,12 +10,12 @@
 		<string>IntelliJ IDEA.app</string>
 		<key>CODESIGNATUREREQUIREMENT</key>
 		<string>identifier "com.jetbrains.intellij" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2ZEFAR8TH3"</string>
-		<key>edition</key>
-		<string>U</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/JetBrains/Intellij</string>
 		<key>NAME</key>
 		<string>IntellijUltimate</string>
+		<key>edition</key>
+		<string>U</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -34,5 +34,7 @@
 	</dict>
 	<key>ParentRecipe</key>
 	<string>com.github.its-unibas.munki.Intellij</string>
+	<key>Process</key>
+	<array/>
 </dict>
 </plist>

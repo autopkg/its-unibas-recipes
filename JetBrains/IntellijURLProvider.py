@@ -10,11 +10,10 @@
 
 from __future__ import absolute_import
 
+import sys
 from xml.dom import minidom
 
-from autopkglib import URLGetter, ProcessorError
-
-import sys
+from autopkglib import ProcessorError, URLGetter
 
 __all__ = ["IntellijURLProvider"]
 
