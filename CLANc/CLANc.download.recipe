@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Description</key>
+		<string>Downloads the latest version of CLANc, a computerized language anaylsis tool from https://dali.talkbank.org/clan/</string>
+		<key>Identifier</key>
+		<string>com.github.its-unibas.download.CLANc</string>
+		<key>Input</key>
+		<dict>
+			<key>NAME</key>
+			<string>CLANc</string>
+			<key>DOWNLOAD_URL</key>
+			<string>https://dali.talkbank.org/clan/clanC.dmg</string>
+		</dict>
+		<key>MiniumumVersion</key>
+		<string>1.0</string>
+		<key>Process</key>
+		<array>
+			<dict>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>%DOWNLOAD_URL%</string>
+					<key>filename</key>
+					<string>%NAME%.dmg</string>
+				</dict>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>EndOfCheckPhase</string>
+			</dict>
+		</array>
+	</dict>
+</plist>
