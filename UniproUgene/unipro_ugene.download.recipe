@@ -14,8 +14,6 @@
         <string>href="(.*ugene\.unipro\.ru\/downloads\/packages\/.*\/ugene-.*-mac-.*\.dmg)"</string>
         <key>SEARCH_URL</key>
         <string>http://ugene.net/downloads/ugene_get_latest_mac_x86_64_full.html</string>
-        <key>DISABLE_CODE_SIGNATURE_VERIFICATION</key>
-        <true />
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.2</string>
