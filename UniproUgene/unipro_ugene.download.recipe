@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Ugene</string>
         <key>SEARCH_PATTERN</key>
-        <string>href="(.*ugene\.unipro\.ru\/downloads\/packages\/.*\/ugene-.*-mac-.*\.dmg)"</string>
+        <string>href="(https:\/\/github\.com\/ugeneunipro\/ugene\/releases\/download\/\d{2}\.\d\/ugene-\d{2}\.\d-mac-x86-64\.dmg)"</string>
         <key>SEARCH_URL</key>
         <string>http://ugene.net/downloads/ugene_get_latest_mac_x86_64_full.html</string>
     </dict>
