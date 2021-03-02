@@ -19,7 +19,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>(https://misc.www.switch.ch/drive/SWITCHdrive-[\d.]+pkg)</string>
+				<string>(https:\/\/drive\.switch\.ch\/index\.php\/s\/\S*\/download).*\s.*OSX</string>
 				<key>url</key>
 				<string>https://help.switch.ch/drive/downloads/</string>
 			</dict>
@@ -31,6 +31,8 @@
 			<dict>
 				<key>url</key>
 				<string>%match%</string>
+				<key>prefetch_filename</key>
+				<string>True</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>

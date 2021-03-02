@@ -13,7 +13,7 @@
 			<key>NAME</key>
 			<string>Spartan</string>
 			<key>SEARCH_PATTERN</key>
-			<string>"(http:\/\/downloads\.wavefun\.com\/Mac\/Spartan..V...\.dmg)".*Macintosh.*v\..\..\..</string>
+			<string>"(https:\/\/downloads\.wavefun\.com\/Mac\/Spartan..V...\.dmg)".*Macintosh.*v\..\..\..</string>
 			<key>SEARCH_URL</key>
 			<string>https://www.wavefun.com/downloads</string>
 		</dict>

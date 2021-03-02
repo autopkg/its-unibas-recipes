@@ -12,10 +12,6 @@
         <string>UGENE</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/%NAME%</string>
-        <key>SEARCH_PATTERN2</key>
-        <string>href=".*ugene\.unipro\.ru\/downloads\/packages\/.*\/ugene-(.*)-mac-.*\.dmg"</string>
-        <key>SEARCH_URL</key>
-        <string>http://ugene.net/downloads/ugene_get_latest_mac_x86_64_full.html</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
