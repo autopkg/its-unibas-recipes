@@ -96,8 +96,6 @@
 				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
-				<key>force_munkiimport</key>
-				<true/>
 			</dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>
