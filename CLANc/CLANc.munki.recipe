@@ -14,6 +14,8 @@
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
 		<string>CLANc</string>
+		<key>pkg_name</key>
+		<string>Install_Clan.pkg</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -40,7 +42,53 @@
 	<string>com.github.its-unibas.download.CLANc</string>
 	<key>Process</key>
 	<array>
-
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpacked</string>
+				<key>flat_pkg_path</key>
+				<string>%pathname%/%pkg_name%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgpayloadunpacked</string>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpacked/clanc.pkg/Payload</string>
+			</dict>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgpayloadunpacked/CLANc/CLANc.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
