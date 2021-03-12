@@ -44,7 +44,7 @@
                     <key>Arguments</key>
                         <dict>
                             <key>re_pattern</key>
-                            <string>%SEARCH_PATTERN2%</string>
+                            <string>%SEARCH_PATTERN%</string>
                             <key>url</key>
                             <string>%SEARCH_URL%</string>
                         </dict>
