@@ -17,6 +17,24 @@
 	<array>
 		<dict>
 			<key>Arguments</key>
+			<dict>
+				<key>warning_message</key>
+				<string>f5transkript has been replaced by the developer with f4transkript. This recipe is now non-functional. Please remove it from your list of recipes.</string>
+			</dict>
+			<key>Processor</key>
+			<string>DeprecationWarning</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>predicate</key>
+				<string>TRUEPREDICATE</string>
+			</dict>
+			<key>Processor</key>
+			<string>StopProcessingIf</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
 			<dict/>
 			<key>Processor</key>
 			<string>F5transkriptURLProvider</string>
