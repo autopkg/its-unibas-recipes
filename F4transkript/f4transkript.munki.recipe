@@ -31,12 +31,30 @@
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
+			<true/>
 			<key>blocking_applications</key>
 			<array>
 				<string>F5transkript</string>
 				<string>f4transkript</string>
 			</array>
-			<true/>
+			<key>preinstall_script</key>
+			<string>#!/bin/bash
+
+process_list=(
+"f4transkript.app"
+)
+
+# Kill processes if any are given as argument.
+for process in "${process_list[@]}"; do
+  # Terminate gracefully
+  osascript -e "quit app \"$process\""
+  sleep 1
+  # Get process id and kill process. Exclude "PKInstallSandbox" to not accidentally terminate other installations.
+  for process_id in $(ps -ax | grep "$process" | grep -v "PKInstallSandbox" | grep -v "grep" | awk '{print $1}'); do
+    echo "INFO: Process '$process' with PID '$process_id' is running, will now kill forcefully!"
+    kill -9 "$process_id"
+  done
+done</string>
 		</dict>
 	</dict>
 	<key>ParentRecipe</key>
