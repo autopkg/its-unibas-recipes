@@ -11,7 +11,11 @@
 		<key>NAME</key>
 		<string>f4transkript</string>
 		<key>DOWNLOAD_URL</key>
-		<string>https://www.audiotranskription.de/en//?smd_process_download=1&amp;download_id=2544</string>
+		<string>https://www.audiotranskription.de/en/downloads/</string>
+		<!--<string>https://www.audiotranskription.de/en//?smd_process_download=1&amp;download_id=2544</string>-->
+		<key>REGEX</key>
+		<!--<string>^.*href=\"(.*download_id=[0-9]*)\".*title=\"f4transkript macOS\".*$</string>-->
+		<string>id=(\d\d\d\d).*title="f4transkript\smacOS</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.5.0</string>
@@ -20,10 +24,21 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>re_pattern</key>
+				<string>%REGEX%</string>
+				<key>url</key>
+				<string>%DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
 				<key>filename</key>
 				<string>%NAME%.zip</string>
 				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>https://www.audiotranskription.de/en//?smd_process_download=1&amp;download_id=%match%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
