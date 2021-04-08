@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>Ugene</string>
         <key>SEARCH_PATTERN</key>
-        <string>href="(https:\/\/github\.com\/ugeneunipro\/ugene\/releases\/download\/\d{2}\.\d\/ugene-\d{2}\.\d-mac-x86-64\.dmg)"</string>
-        <key>SEARCH_URL</key>
-        <string>http://ugene.net/downloads/ugene_get_latest_mac_x86_64_full.html</string>
+        <string>ugene-.{4,6}-mac-x86-64\.dmg</string>
+        <key>GITHUB_REPO</key>
+        <string>ugeneunipro/ugene</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.2</string>
@@ -25,9 +25,9 @@
             <key>Arguments</key>
             <dict>
                 <key>asset_regex</key>
-                <string>ugene-.{4,6}-mac-x86-64\.dmg</string>
+                <string>%SEARCH_PATTERN%</string>
                 <key>github_repo</key>
-                <string>ugeneunipro/ugene</string>
+                <string>%GITHUB_REPO%</string>
             </dict>
         </dict>
         <dict>
