@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of f4transkript and imports into Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.its-unibas.munki.f4transkript</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/f4transkript</string>
+		<key>NAME</key>
+		<string>f4transkript</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Creativity</string>
+			<key>description</key>
+			<string>f4transkript beschleunigt das eigene Abtippen von Audio- und Videodateien.</string>
+			<key>developer</key>
+			<string>audiotranskription.de</string>
+			<key>display_name</key>
+			<string>f4transkript</string>
+			<key>minimum_os_version</key>
+			<string>10.7.0</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>blocking_applications</key>
+			<array>
+				<string>F5transkript</string>
+				<string>f4transkript</string>
+			</array>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.its-unibas.download.f4transkript</string>
+	<key>Process</key>
+	<array>
+		<dict>
+            <key>Arguments</key>
+            <dict>
+                <key>dmg_root</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>dmg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+            </dict>
+            <key>Processor</key>
+            <string>DmgCreator</string>
+        </dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
