@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Download Recipe for the latest version of OMERO.insight from GitHub</string>
+    <key>Identifier</key>
+    <string>com.github.its-unibas.download.omero-insight</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>OMERO.insight</string>
+        <key>SEARCH_PATTERN</key>
+        <string>OMERO\.insight\-\d\.\d{1,2}\.\d{1,2}\.dmg</string>
+        <key>GITHUB_REPO</key>
+        <string>ome/omero-insight</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.2</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>GitHubReleasesInfoProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>asset_regex</key>
+                <string>%SEARCH_PATTERN%</string>
+                <key>github_repo</key>
+                <string>%GITHUB_REPO%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>%NAME%-%version%.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
