@@ -45,7 +45,7 @@
 			<key>display_name</key>
 			<string>CorelDRAW Update</string>
 			<key>name</key>
-			<string>%NAME%%BASE_VERSION%</string>
+			<string>%NAME%%BASE_VERSION%%ARCHITECTURE%</string>
 			<key>unattended_install</key>
 			<true/>
 			<key>update_for</key>
