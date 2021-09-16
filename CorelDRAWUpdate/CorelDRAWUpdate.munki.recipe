@@ -23,7 +23,9 @@
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
-		<string>CorelDRAWUpdate</string>
+		<string>CorelDRAWUpdate%BASE_VERSION% %ARCHITECTURE%</string>
+		<key>UPDATE_FOR</key>
+		<string>%BASE_VERSION_NAME%%BASE_VERSION%</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
@@ -45,12 +47,12 @@
 			<key>display_name</key>
 			<string>CorelDRAW Update</string>
 			<key>name</key>
-			<string>%NAME%%BASE_VERSION%%ARCHITECTURE%</string>
+			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
 			<key>update_for</key>
 			<array>
-				<string>%BASE_VERSION_NAME%%BASE_VERSION%</string>
+				<string>%UPDATE_FOR%</string>
 			</array>
 			<key>supported_architectures</key>
 			<array>
