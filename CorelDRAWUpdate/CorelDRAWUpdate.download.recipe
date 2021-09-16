@@ -3,17 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Download the latest update for CorelDRAW</string>
+	<string>Download the latest update for CorelDRAW. The base version is modifiable via the BASE_VERSION input variable. The architecture can be chosen from Intel and M1 by modifying the ARCHITECTURE variable.</string>
 	<key>Identifier</key>
 	<string>com.github.its-unibas.download.CorelDRAWUpdate</string>
 	<key>Input</key>
 	<dict>
 		<key>BASE_VERSION</key>
-		<string>2020</string>
+		<string>2021</string>
+		<key>ARCHITECTURE</key>
+		<string>Intel</string>
 		<key>NAME</key>
 		<string>CorelDRAW Update</string>
 		<key>SEARCH_PATTERN</key>
-		<string>href="(.*patches\/CorelDraw\/GraphicsSuite\/%BASE_VERSION%.*dmg)"</string>
+		<string>href="(.*patches\/CorelDraw\/GraphicsSuite\/%BASE_VERSION%\/JRLG\/CDGS%BASE_VERSION%.{2,4}%ARCHITECTURE%\.dmg)"</string>
 		<key>SEARCH_URL</key>
 		<string>https://www.coreldraw.com/de/support/updates/#cdgs-%BASE_VERSION%</string>
 	</dict>
