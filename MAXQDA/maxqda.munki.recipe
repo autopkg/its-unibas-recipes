@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of MAXQDA and imports into Munki. 
         If you want to download another version of MAXQDA just change VERSION to the specific version Number. Then the download link will be switched out to the specific version. 
-        At the moment it works with the versions 12, 2018 and 2020. 
+        At the moment it works with the versions 12, 2018 and 2020, 2022. 
     </string>
     <key>Identifier</key>
     <string>com.github.its-unibas.munki.MAXQDA</string>
