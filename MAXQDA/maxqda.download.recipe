@@ -5,14 +5,14 @@
     <key>Description</key>
     <string>Download Recipe for the latest version of MAXQDA
             If you want to download another version of MAXQDA just change VERSION to the specific version Number. Then the download link will be switched out to the specific version. 
-            At the moment it works with the versions 12, 2018 and 2020. 
+            At the moment it works with the versions 12, 2018 and 2020,2022. 
     </string>
     <key>Identifier</key>
     <string>com.github.its-unibas.download.MAXQDA</string>
     <key>Input</key>
     <dict>
         <key>VERSION</key>
-        <string>2020</string>
+        <string>2022</string>
         <key>NAME</key>
         <string>MAXQDA</string>
         <key>URL</key>
