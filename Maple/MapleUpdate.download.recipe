@@ -3,15 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Recipe description</string>
+	<string>Download Recipe for the latest update for Maple</string>
 	<key>Identifier</key>
 	<string>com.github.its-unibas.download.MapleUpdate</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>MapleUpdate</string>
-		<key>URL</key>
-		<string></string>
 	</dict>
 	<key>MiniumumVersion</key>
 	<string>1.0</string>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Recipe description</string>
+	<string>Downloads and imports the latest update for Maple into Munki.</string>
 	<key>Identifier</key>
 	<string>com.github.its-unibas.munki.MapleUpdate</string>
 	<key>Input</key>
@@ -35,7 +35,7 @@
             <key>name</key>
             <string>%NAME%</string>
             <key>unattended_install</key>
-            <true />
+            <true/>
         </dict>
 	</dict>
 	<key>MiniumumVersion</key>

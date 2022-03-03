@@ -31,9 +31,9 @@ class MapleUpdateURLProvider(URLGetter):
         final_url = re.search(REGEX2, html_source2).group(1)
         url2 = HTMLParser().unescape(final_url)
         if self.env["verbose"] > 0:
-            print("F5transkriptURLProvider: Match found is: {}\n".format(final_url))
-            print("F5transkriptURLProvider: Unescaped url is: {}\n".format(url2))
-            print("F5transkriptURLProvider: Returning full url: {}{}".format(BASE_URL2, url2))
+            print("MapleUpdateURLProvider: Match found is: {}\n".format(final_url))
+            print("MapleUpdateURLProvider: Unescaped url is: {}\n".format(url2))
+            print("MapleUpdateURLProvider: Returning full url: {}{}".format(BASE_URL2, url2))
 
         self.env["url"] = BASE_URL2 + url2
         self.env["VERSION"] = version
