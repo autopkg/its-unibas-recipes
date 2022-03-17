@@ -10,8 +10,8 @@ from html.parser import HTMLParser
 
 BASE_URL = 'https://www.maplesoft.com/support/downloads/'
 BASE_URL2 = 'https://www.maplesoft.com/downloads/'
-REGEX1 = fr'\/support\/downloads\/(m2021\_\d\_\d+update\.aspx)\"\ class=\"main-text-color\">Maple ({{}}\.\d\.\d) Update'
-REGEX2 = fr"https:\/\/www\.maplesoft\.com\/downloads\/(\?d=[\d\w]+&pr=Maple ({{}}[\.\d]+UpdateInstallers)"
+REGEX1 = fr'\/support\/downloads\/(m{{0}}[_\d]+update\.aspx)\"\ class=\"main-text-color\">Maple ({{0}}[\.\d]+) Update'
+REGEX2 = fr"https:\/\/www\.maplesoft\.com\/downloads\/(\?d=[\d\w]+&pr=Maple{{}}[\.\d]+UpdateInstallers)"
 __all__ = ['MaplesoftURLProvider']
 
 class MapleUpdateURLProvider(URLGetter):
@@ -28,10 +28,8 @@ class MapleUpdateURLProvider(URLGetter):
 
     def main(self):
         html_source = self.download(BASE_URL).decode("utf-8")
-        print(str(REGEX1.format(self.env.get("MajorVersion",'2021'))))
         response = re.search(REGEX1.format(self.env.get("MajorVersion","2021")), html_source)
         escaped_url = response.group(1)
-        print(escaped_url)
         version = response.group(2)
         url = HTMLParser().unescape(escaped_url)
         html_source2 = self.download(BASE_URL + url).decode("utf-8")
