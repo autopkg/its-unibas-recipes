@@ -10,6 +10,8 @@
 	<dict>
 		<key>NAME</key>
 		<string>MapleUpdate</string>
+		<key>MajorVersion</key>
+		<string>2021</string>
 	</dict>
 	<key>MiniumumVersion</key>
 	<string>1.0</string>
@@ -17,7 +19,10 @@
 	<array>
 		<dict>
 			<key>Arguments</key>
-			<dict/>
+			<dict>
+				<key>MajorVersion</key>
+				<string>%MajorVersion%</string>
+			</dict>
 			<key>Processor</key>
 			<string>MapleUpdateURLProvider</string>
 		</dict>
