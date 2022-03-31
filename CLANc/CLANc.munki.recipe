@@ -84,6 +84,25 @@
 				<dict>
 					<key>version</key>
 					<string>%version%</string>
+					<key>installs</key>
+					<array>
+						<dict>
+							<key>CFBundleIdentifier</key>
+							<string>CLANc</string>
+							<key>CFBundleName</key>
+							<string>CLANc</string>
+							<key>CFBundleShortVersionString</key>
+							<string>%version%</string>
+							<key>CFBundleVersion</key>
+							<string>For the Version number, use "About Clan..." inside the application</string>
+							<key>path</key>
+							<string>/Applications/CLANc/CLANc.app</string>
+							<key>type</key>
+							<string>application</string>
+							<key>version_comparison_key</key>
+							<string>CFBundleShortVersionString</string>
+						</dict>
+					</array>
 				</dict>
 			</dict>
 			<key>Processor</key>
