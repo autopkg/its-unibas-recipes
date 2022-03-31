@@ -29,7 +29,7 @@
 			<key>developer</key>
 			<string>TalkBank</string>
 			<key>display_name</key>
-			<string>CLANc</string>
+			<string>%NAME%</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -67,10 +67,14 @@
 			<string>PkgPayloadUnpacker</string>
 		</dict>
 		<dict>
+			<key>Processor</key>
+			<string>com.github.n8felton.shared/MD5Checksum</string>
+		</dict>
+		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/pkgpayloadunpacked/CLANc.app/Contents/Info.plist</string>
+				<string>%RECIPE_CACHE_DIR%/pkgpayloadunpacked/%NAME%.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleShortVersionString</string>
 			</dict>
@@ -88,19 +92,21 @@
 					<array>
 						<dict>
 							<key>CFBundleIdentifier</key>
-							<string>CLANc</string>
+							<string>%NAME%</string>
 							<key>CFBundleName</key>
-							<string>CLANc</string>
+							<string>%NAME%</string>
 							<key>CFBundleShortVersionString</key>
 							<string>%version%</string>
 							<key>CFBundleVersion</key>
 							<string>For the Version number, use "About Clan..." inside the application</string>
+							<key>md5checksum</key>
+							<string>%md5checksum%</string>
 							<key>path</key>
-							<string>/Applications/CLANc/CLANc.app</string>
+							<string>/Applications/%NAME%/%NAME%.app</string>
 							<key>type</key>
 							<string>application</string>
 							<key>version_comparison_key</key>
-							<string>CFBundleShortVersionString</string>
+							<string>md5checksum</string>
 						</dict>
 					</array>
 				</dict>
