@@ -97,16 +97,12 @@
 							<string>%NAME%</string>
 							<key>CFBundleShortVersionString</key>
 							<string>%version%</string>
-							<key>CFBundleVersion</key>
-							<string>For the Version number, use "About Clan..." inside the application</string>
-							<key>md5checksum</key>
-							<string>%md5checksum%</string>
 							<key>path</key>
 							<string>/Applications/%NAME%/%NAME%.app</string>
 							<key>type</key>
 							<string>application</string>
 							<key>version_comparison_key</key>
-							<string>md5checksum</string>
+							<string>CFBundleShortVersionString</string>
 						</dict>
 					</array>
 				</dict>
