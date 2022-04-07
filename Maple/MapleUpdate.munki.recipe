@@ -38,6 +38,10 @@
             <string>%NAME% %MajorVersion%</string>
             <key>unattended_install</key>
             <true/>
+            <key>update_for</key>
+			<array>
+				<string>Maple</string>
+			</array>
         </dict>
 	</dict>
 	<key>MiniumumVersion</key>
@@ -53,6 +57,46 @@
                 <dict>
                     <key>version</key>
                     <string>%VERSION%</string>
+                    <key>installcheck_script</key>
+                    <string>#!/bin/sh
+# Check for existing receipt and version
+VERSION_FILE="/Library/Frameworks/Maple.framework/Versions/Current/license/version.txt"
+VERSION="%VERSION%"
+                        
+read -r INSTALLED_VERSION &lt; "$VERSION_FILE"
+                   
+if [ "$INSTALLED_VERSION" != "$VERSION" ] &amp;&amp; [[ "$INSTALLED_VERSION" &lt; "$VERSION" ]]; then
+    exit 0
+else
+    exit 1
+fi
+                    </string>
+                    <key>postinstall_script</key>
+                    <string>#!/bin/sh
+# run the installer
+/usr/bin/sudo /private/tmp/Maple2021.2MacUpgrade.app/Contents/MacOS/installbuilder.sh --mode unattended 
+    
+# remove the toolkit installer app
+file_path="/Applications/Maple 2021/MapleToolbox2021.2MacInstaller.app"
+if [ -e "$file_path" ];then
+/usr/bin/sudo /bin/rm -rf /Applications/Maple\ 2021/MapleToolbox2021.2MacInstaller.app
+echo "Removed toolbox installer"
+fi
+                    
+# remove the installer app
+file_path="/private/tmp/Maple2021.2MacUpgrade.app"
+if [ -e "$file_path" ];then
+/usr/bin/sudo /bin/rm -rf "$file_path"
+echo "Removed Maple Installer"
+fi
+                    
+# remove link to uninstaller
+file_path="/Applications/Maple 2021/Uninstall Maple 2021"
+if [ -e "$file_path" ];then
+/usr/bin/sudo /bin/rm /Applications/Maple\ 2021/Uninstall\ Maple\ 2021
+echo "Removed Maple Uninstaller"
+fi
+                    </string>
                 </dict>
             </dict>
             <key>Processor</key>
@@ -61,6 +105,10 @@
         <dict>
             <key>Arguments</key>
             <dict>
+                <key>additional_makepkginfo_options</key>
+				<array>
+					<string>--destinationpath=/private/tmp</string>
+				</array>
                 <key>pkg_path</key>
                 <string>%pathname%</string>
                 <key>repo_subdirectory</key>
