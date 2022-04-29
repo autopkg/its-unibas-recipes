@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>This recipe downloads for the latest version of erase-install script from its Github Releases page. It uses an asset_regex to download the "standard" version, in contrast to the "nopython" or "depnotify" versions</string>
+    <key>Identifier</key>
+    <string>com.github.its-unibas.download.erase-install</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>erase-install</string>
+        <key>SEARCH_PATTERN</key>
+        <string>erase-install-(\d*\.\d*).pkg</string>
+        <key>GITHUB_REPO</key>
+        <string>grahampugh/erase-install</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.2</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>GitHubReleasesInfoProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>asset_regex</key>
+                <string>%SEARCH_PATTERN%</string>
+                <key>github_repo</key>
+                <string>%GITHUB_REPO%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>%NAME%-%version%.pkg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
