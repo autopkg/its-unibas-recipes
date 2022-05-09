@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads, unzips, verifies and packages the installer of the latest version of DoNotDisturb by Objective-See.</string>
     <key>Identifier</key>
-    <string>com.github.oliverweinm-recipes.pkg.DoNotDisturb</string>
+    <string>com.github.its-unibas.pkg.DoNotDisturb</string>
     <key>MinimumVersion</key>
     <string>0.6.0</string>
     <key>Input</key>
