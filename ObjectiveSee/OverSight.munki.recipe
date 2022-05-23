@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads, unzips, verifies, packages and imports the installer of the latest version of OverSight by Objective-See into munki.</string> 
+    <string>Downloads, unzips, verifies, packages and imports the installer of the latest version of OverSight by Objective-See into munki. The app itself is installed and uninstalled through the shell scripts.</string> 
     <key>Identifier</key>
     <string>com.github.its-unibas.munki.OverSight</string>
     <key>ParentRecipe</key>
@@ -40,22 +40,21 @@
             <string>%MUNKI_CATEGORY%</string>
             <key>developer</key>
             <string>%MUNKI_DEVELOPER%</string>
+<!-- The following scripts install and uninstall the app by simulating a user clicking the "install" and uninstall buttons
+within the Installer app. The main functionality has been taken directly from the Software's author: https://objective-see.org/products/oversight.html -->
             <key>postinstall_script</key>
             <string>#!/bin/sh
-sudo "/Applications/%NAME% Installer.app/Contents/MacOS/Oversight Installer" -install
-rm -rf "/Applications/%NAME% Installer.app/"
+mv "/Applications/OverSight Installer.app" "/usr/local/var"
+
+#Simulating user pressing install button in the Installer app
+"/usr/local/var/OverSight Installer.app/Contents/MacOS/OverSight Installer" -install
 exit 0
             </string>
             <key>preuninstall_script</key>
             <string>#!/bin/sh
-//close application if open
-pkill OverSight
+"/usr/local/var/OverSight Installer.app/Contents/MacOS/OverSight Installer" "-uninstall"
 
-//remove log file and other Application Support Data
-rm -rf "~/Library/Application Support/Objective-See/OverSight"
-
-//remove application
-rm -rf /Applications/%NAME%.app
+rm -rf "/usr/local/var/OverSight Installer.app"
 exit 0
             </string>
         </dict>
