@@ -7,7 +7,7 @@
     <key>Identifier</key>
     <string>com.github.its-unibas.munki.TaskExplorer</string>
     <key>ParentRecipe</key>
-    <string>com.github.its-unibas.pkg.TaskExplorer</string>
+    <string>com.github.ahousseini-recipes.pkg.TaskExplorer</string>
     <key>MinimumVersion</key>
     <string>1.0.0</string>
     <key>Input</key>
