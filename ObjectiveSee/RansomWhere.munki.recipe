@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads, unzips, verifies, packages and imports the installer of the latest version of RansomWhere by Objective-See into munki.</string> 
+    <string>Downloads, unzips, verifies, packages and imports the installer of the latest version of RansomWhere by Objective-See into munki. The app itself is installed and uninstalled through shell scripts.</string> 
     <key>Identifier</key>
     <string>com.github.its-unibas.munki.RansomWhere</string>
     <key>ParentRecipe</key>
@@ -40,21 +40,23 @@
             <string>%MUNKI_CATEGORY%</string>
             <key>developer</key>
             <string>%MUNKI_DEVELOPER%</string>
+<!-- The following scripts install and uninstall the app by simulating a user clicking the "install" and "uninstall" buttons within the Installer app. 
+The main functionality has been taken directly from the Software's author: https://objective-see.org/products/ransomwhere.html -->
             <key>postinstall_script</key>
             <string>#!/bin/sh
-sudo /Applications/%NAME%_Installer.app/Contents/MacOS/%NAME%_Installer -install
-rm -rf /Applications/%NAME%_Installer.app/
+mv "/Applications/RansomWhere_Installer.app" "/usr/local/var"
+
+#Simulating user pressing install button in the Installer app
+"/usr/local/var/Ransomwhere_Installer.app/Contents/MacOS/RansomWhere_Installer" "-install"
+
 exit 0
             </string>
             <key>preuninstall_script</key>
             <string>#!/bin/sh
-//stop launch daemon
-sudo launchctl unload /Library/LaunchDaemons/com.objective-see.ransomwhere.plist
+#Simulating user pressing uninstall button in the Installer app
+"/usr/local/var/Ransomwhere_Installer.app/Contents/MacOS/RansomWhere_Installer" "-uninstall"
 
-//remove launch daemon, its plist, and supporting files
-sudo rm -rf /Library/LaunchDaemons/com.objective-see.ransomwhere.plist
-
-sudo rm -rf /Library/Objective-See/RansomWhere
+rm -rf /usr/local/var/RansomWhere_Installer.app
 exit 0
             </string>
         </dict>
