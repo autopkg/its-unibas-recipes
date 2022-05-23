@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads, unzips, verifies, packages and imports the installer of the latest version of DoNotDisturb by Objective-See into munki.</string> 
+    <string>Downloads, unzips, verifies, packages and imports the installer of the latest version of DoNotDisturb by Objective-See into munki. The app itself is installed and uninstalled through the shell scripts.</string> 
     <key>Identifier</key>
     <string>com.github.its-unibas.munki.DoNotDisturb</string>
     <key>ParentRecipe</key>
@@ -40,29 +40,22 @@
             <string>%MUNKI_CATEGORY%</string>
             <key>developer</key>
             <string>%MUNKI_DEVELOPER%</string>
+<!-- The following scripts install and uninstall the app by simulating a user clicking the "install" and uninstall buttons
+within the Installer app. The script has been modeled after the scripts in com.github.its-unibas.munki.OverSight -->
             <key>postinstall_script</key>
             <string>#!/bin/sh
-sudo "/Applications/Do Not Disturb Installer.app/Contents/MacOS/%NAME% Installer"
-rm -rf "/Applications/%NAME% Installer.app/"
+mv "/Applications/Do Not Disturb Installer.app" "/usr/local/var"
+#This mimicks a user clicking the "Install" button on the Installer app
+"/usr/local/var/Do Not Disturb Installer.app/Contents/MacOS/Do Not Disturb Installer" "-install"
+
 exit 0
             </string>
             <key>preuninstall_script</key>
             <string>#!/bin/sh
-//close application if open
-pkill "Do Not Disturb"
+#This mimicks a user clicking the "Uninstall" button on the Installer app
+"/usr/local/var/Do Not Disturb Installer.app/Contents/MacOS/Do Not Disturb Installer" "-uninstall"
 
-"/Library/Objective-See/DND/Do Not Disturb.bundle/Contents/MacOS/Do Not Disturb" "-uninstall"
-
-launchctl unload /Library/LaunchDaemons/com.objective-see.dnd.plist
-
-rm /Library/LaunchDaemons/com.objective-see.dnd.plist
-
-//Remove application
-rm -rf "/Applications/Do Not Disturb.app"
-
-rm -rf /Library/Objective-See/DND
-
-killall "Do Not Disturb Helper"
+rm -rf "/usr/local/var/Do Not Disturb Installer.app"
 
 exit 0
             </string>
