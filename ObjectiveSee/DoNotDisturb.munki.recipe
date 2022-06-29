@@ -44,18 +44,17 @@
 within the Installer app. The script has been modeled after the scripts in com.github.its-unibas.munki.OverSight -->
             <key>postinstall_script</key>
             <string>#!/bin/sh
-mv "/Applications/Do Not Disturb Installer.app" "/usr/local/var"
 #This mimicks a user clicking the "Install" button on the Installer app
-"/usr/local/var/Do Not Disturb Installer.app/Contents/MacOS/Do Not Disturb Installer" "-install"
+"/usr/local/var/dnd/Do Not Disturb Installer.app/Contents/MacOS/Do Not Disturb Installer" "-install"
 
 exit 0
             </string>
             <key>preuninstall_script</key>
             <string>#!/bin/sh
 #This mimicks a user clicking the "Uninstall" button on the Installer app
-"/usr/local/var/Do Not Disturb Installer.app/Contents/MacOS/Do Not Disturb Installer" "-uninstall"
+"/usr/local/var/dnd/Do Not Disturb Installer.app/Contents/MacOS/Do Not Disturb Installer" "-uninstall"
 
-rm -rf "/usr/local/var/Do Not Disturb Installer.app"
+rm -rf "/usr/local/var/dnd/Do Not Disturb Installer.app"
 
 exit 0
             </string>

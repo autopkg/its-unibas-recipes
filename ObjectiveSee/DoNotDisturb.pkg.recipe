@@ -20,16 +20,62 @@
         <dict>
             <key>Arguments</key>
             <dict>
-                <key>app_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME% Installer.app</string>
+                <key>pkgdirs</key>
+                <dict>
+                    <key>usr/local/var/dnd</key>
+                    <string>0775</string>
+                </dict>
+                <key>pkgroot</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/pkg</string>
             </dict>
             <key>Processor</key>
-            <string>AppPkgCreator</string>
+            <string>PkgRootCreator</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileMover</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME% Installer.app</string>
+                <key>target</key>
+                <string>%pkgroot%/usr/local/var/dnd/%NAME% Installer.app</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_request</key>
+                <dict>
+                    <key>pkgname</key>
+                    <string>%NAME% Installer-%version%</string>
+                    <key>version</key>
+                    <string>%version%</string>
+                    <key>id</key>
+                    <string>com.objective-see.dnd.installer</string>
+                    <key>options</key>
+                    <string>purge_ds_store</string>
+                    <key>chown</key>
+                    <array>
+                        <dict>
+                            <key>path</key>
+                            <string>usr/local/var/dnd</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>admin</string>
+                        </dict>
+                    </array>
+                </dict>
+            </dict>
+            <key>Processor</key>
+            <string>PkgCreator</string>
         </dict>
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
         </dict>
+
     </array>
 </dict>
 </plist>

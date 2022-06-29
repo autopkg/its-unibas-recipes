@@ -44,17 +44,15 @@
 within the Installer app. The main functionality has been taken directly from the Software's author: https://objective-see.org/products/oversight.html -->
             <key>postinstall_script</key>
             <string>#!/bin/sh
-mv "/Applications/OverSight Installer.app" "/usr/local/var"
-
 #Simulating user pressing install button in the Installer app
-"/usr/local/var/OverSight Installer.app/Contents/MacOS/OverSight Installer" -install
+"/usr/local/var/oversight/OverSight Installer.app/Contents/MacOS/OverSight Installer" -install
 exit 0
             </string>
             <key>preuninstall_script</key>
             <string>#!/bin/sh
-"/usr/local/var/OverSight Installer.app/Contents/MacOS/OverSight Installer" "-uninstall"
+"/usr/local/var/oversight/OverSight Installer.app/Contents/MacOS/OverSight Installer" "-uninstall"
 
-rm -rf "/usr/local/var/OverSight Installer.app"
+rm -rf "/usr/local/var/oversight/OverSight Installer.app"
 exit 0
             </string>
         </dict>

@@ -44,19 +44,17 @@
 The main functionality has been taken directly from the Software's author: https://objective-see.org/products/ransomwhere.html -->
             <key>postinstall_script</key>
             <string>#!/bin/sh
-mv "/Applications/RansomWhere_Installer.app" "/usr/local/var"
-
 #Simulating user pressing install button in the Installer app
-"/usr/local/var/Ransomwhere_Installer.app/Contents/MacOS/RansomWhere_Installer" "-install"
+"/usr/local/var/ransomwhere/Ransomwhere_Installer.app/Contents/MacOS/RansomWhere_Installer" "-install"
 
 exit 0
             </string>
             <key>preuninstall_script</key>
             <string>#!/bin/sh
 #Simulating user pressing uninstall button in the Installer app
-"/usr/local/var/Ransomwhere_Installer.app/Contents/MacOS/RansomWhere_Installer" "-uninstall"
+"/usr/local/var/ransomwhere/Ransomwhere_Installer.app/Contents/MacOS/RansomWhere_Installer" "-uninstall"
 
-rm -rf /usr/local/var/RansomWhere_Installer.app
+rm -rf /usr/local/var/ransomwhere/RansomWhere_Installer.app
 exit 0
             </string>
         </dict>
