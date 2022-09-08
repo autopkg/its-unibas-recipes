@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/local/autopkg/python
 """PyCharm URL Provider."""
 # Copyright (c) 2015-present, Facebook, Inc.
 # Modifications copyright 2018 IT Services University Basel
