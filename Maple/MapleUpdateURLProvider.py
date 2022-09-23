@@ -6,7 +6,7 @@ from urllib import response
 
 from autopkglib import URLGetter
 
-from html.parser import HTMLParser
+import html
 
 BASE_URL = 'https://www.maplesoft.com/support/downloads/'
 BASE_URL2 = 'https://www.maplesoft.com/downloads/'
@@ -31,10 +31,10 @@ class MapleUpdateURLProvider(URLGetter):
         response = re.search(REGEX1.format(self.env.get("MajorVersion","2021")), html_source)
         escaped_url = response.group(1)
         version = response.group(2)
-        url = HTMLParser().unescape(escaped_url)
+        url = html.unescape(escaped_url)
         html_source2 = self.download(BASE_URL + url).decode("utf-8")
         final_url = re.search(REGEX2.format(self.env.get("MajorVersion",'2021')), html_source2).group(1)
-        url2 = HTMLParser().unescape(final_url)
+        url2 = html.unescape(final_url)
         if self.env["verbose"] > 0:
             print("MapleUpdateURLProvider: Match found is: {}\n".format(final_url))
             print("MapleUpdateURLProvider: Unescaped url is: {}\n".format(url2))
