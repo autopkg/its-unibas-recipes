@@ -3,12 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads latest Tableau Prep disk image and imports into Munki.</string>
+	<string>Downloads latest Tableau Prep disk image and imports into Munki.
+
+Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.</string>
 	<key>Identifier</key>
 	<string>ch.unibas.its.git.mcs.munki.tableau-prep</string>
 	<key>Input</key>
 	<dict>
-        <key>NAME</key>
+		<key>DERIVE_MIN_OS</key>
+		<string>YES</string>
+		<key>NAME</key>
 		<string>TableauPrep</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
@@ -52,7 +56,7 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>2.7</string>
 	<key>ParentRecipe</key>
 	<string>ch.unibas.its.git.mcs.download.tableau-prep</string>
 	<key>Process</key>
@@ -74,7 +78,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications</string>
 				<key>pkg_payload_path</key>
 				<string>%RECIPE_CACHE_DIR%/unpack/Tableau App.pkg/payload</string>
 				<key>purge_destination</key>
@@ -87,10 +91,31 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pattern</key>
-				<string>%RECIPE_CACHE_DIR%/payload/Tableau*.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications/Tableau*.app</string>
 			</dict>
 			<key>Processor</key>
 			<string>FileFinder</string>
+		</dict>
+		 <dict>
+			<key>Processor</key>
+			<string>MunkiInstallsItemsCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>faux_root</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<key>installs_item_paths</key>
+				<array>
+					<string>/Applications/%found_basename%</string>
+				</array>
+				<key>version_comparison_key</key>
+				<string>CFBundleShortVersionString</string>
+				<key>derive_minimum_os_version</key>
+				<string>%DERIVE_MIN_OS%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
@@ -128,6 +153,18 @@
 			</dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
+				</array>
+			</dict>
 		</dict>
 	</array>
 </dict>
