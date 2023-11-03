@@ -19,7 +19,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>https://pymol.org/installers/PyMOL-[0-9].*-MacOS.*dmg</string>
+				<string>https://storage.googleapis.com/pymol-storage/installers/PyMOL-[0-9].*-MacOS.*dmg</string>
 				<key>url</key>
 				<string>https://pymol.org/2/</string>
 			</dict>
