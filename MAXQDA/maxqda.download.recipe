@@ -2,51 +2,50 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Download Recipe for the latest version of MAXQDA
+	<key>Description</key>
+	<string>Download Recipe for the latest version of MAXQDA
             If you want to download another version of MAXQDA just change VERSION to the specific version Number. Then the download link will be switched out to the specific version. 
             At the moment it works with the versions 12, 2018 and 2020,2022. 
     </string>
-    <key>Identifier</key>
-    <string>com.github.its-unibas.download.MAXQDA</string>
-    <key>Input</key>
-    <dict>
-        <key>VERSION</key>
-        <string>2022</string>
-        <key>NAME</key>
-        <string>MAXQDA</string>
-        <key>URL</key>
-        <string>https://www.maxqda.de/updates/%VERSION%/MAXQDA%VERSION%.dmg</string>
-    </dict>
-    <key>MinimumVersion</key>
-    <string>0.4.2</string>
-    <key>Process</key>
-    <array>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%URL%</string>
-                <key>filename</key>
-                <string>%NAME%.dmg</string>
-            </dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>CodeSignatureVerifier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>input_path</key>
-                <string>%pathname%/%NAME%%VERSION%.app</string>
-            </dict>
-            
-        </dict>
-    </array>
+	<key>Identifier</key>
+	<string>com.github.its-unibas.download.MAXQDA</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>MAXQDA</string>
+		<key>URL</key>
+		<string>https://www.maxqda.com/de/updates/%VERSION%/MAXQDA%VERSION%.dmg</string>
+		<key>VERSION</key>
+		<string>2022</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.4.2</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+				<key>url</key>
+				<string>%URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%/%NAME%%VERSION%.app</string>
+			</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+	</array>
 </dict>
 </plist>
