@@ -2,58 +2,58 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Downloads the latest version of MAXQDA and imports into Munki. 
+	<key>Description</key>
+	<string>Downloads the latest version of MAXQDA and imports into Munki. 
         If you want to download another version of MAXQDA just change VERSION to the specific version Number. Then the download link will be switched out to the specific version. 
-        At the moment it works with the versions 12, 2018 and 2020, 2022. 
+        At the moment it works with the versions 12, 2018, 2020, 2022, 24.
     </string>
-    <key>Identifier</key>
-    <string>com.github.its-unibas.munki.MAXQDA</string>
-    <key>Input</key>
-    <dict>
-        <key>NAME</key>
-        <string>MAXQDA</string>
-        <key>MUNKI_REPO_SUBDIR</key>
-        <string>apps/Maxqda</string>
-        <key>pkginfo</key>
-        <dict>
-            <key>catalogs</key>
-            <array>
-                <string>testing</string>
-            </array>
-            <key>category</key>
-            <string>Productivity</string>
-            <key>description</key>
-            <string>MAXQDA is a Software for Data Analysis and Mixed Methods Research.</string> 
-            <key>developer</key>
-            <string>VERBI Software GMBH</string>
-            <key>display_name</key>
-            <string>%NAME%%VERSION%</string>
-            <key>minimum_os_version</key>
-            <string>10.12.0</string>
-            <key>name</key>
-            <string>%NAME%%VERSION%</string>
-            <key>unattended_install</key>
-            <true />
-        </dict>
-    </dict>
-    <key>MinimumVersion</key>
-    <string>0.4.2</string>
-    <key>ParentRecipe</key>
-    <string>com.github.its-unibas.download.MAXQDA</string>
-    <key>Process</key>
-    <array>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_path</key>
-                <string>%pathname%</string>
-                <key>repo_subdirectory</key>
-                <string>%MUNKI_REPO_SUBDIR%</string>
-            </dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
-        </dict>
-    </array>
+	<key>Identifier</key>
+	<string>com.github.its-unibas.munki.MAXQDA</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Maxqda</string>
+		<key>NAME</key>
+		<string>MAXQDA</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Productivity</string>
+			<key>description</key>
+			<string>MAXQDA is a Software for Data Analysis and Mixed Methods Research.</string>
+			<key>developer</key>
+			<string>VERBI Software GMBH</string>
+			<key>display_name</key>
+			<string>%NAME%%VERSION%</string>
+			<key>minimum_os_version</key>
+			<string>10.12.0</string>
+			<key>name</key>
+			<string>%NAME%%VERSION%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.4.2</string>
+	<key>ParentRecipe</key>
+	<string>com.github.its-unibas.download.MAXQDA</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
 </dict>
 </plist>
