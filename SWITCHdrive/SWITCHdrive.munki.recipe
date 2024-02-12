@@ -3,11 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of SWITCHDrive and imports it into Munki.</string>
+	<string>Specify ARCH to be "ARM" or "Intel". Downloads the current release version of SWITCHDrive and imports it into Munki.</string>
 	<key>Identifier</key>
 	<string>com.github.its-unibas.munki.switchdrive</string>
 	<key>Input</key>
 	<dict>
+		<key>ARCH</key>
+		<string>ARM</string>
 		<key>MUNKI_CATEGORY</key>
 		<string>Storage</string>
 		<key>MUNKI_REPO_SUBDIR</key>
