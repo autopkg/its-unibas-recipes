@@ -13,7 +13,9 @@
 		<key>NAME</key>
 		<string>f4transkript</string>
 		<key>REGEX</key>
-		<string>https:\/\/download.audiotranskription.de\/f4-\d+.\d+.\d+-mac\.zip</string>
+		<string>[a-z]+="(https:\/\/www\.audiotranskription\.de\/download\/\d+\/\?[a-z]+=\d+)"[a-z -=“”]+>Download f4 for macOS</string>
+		<key>FORMAT</key>
+		<string>zip</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.5.0</string>
@@ -35,6 +37,8 @@
 			<dict>
 				<key>url</key>
 				<string>%match%</string>
+				<key>filename</key>
+				<string>%NAME%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -44,6 +48,8 @@
 			<dict>
 				<key>archive_path</key>
 				<string>%pathname%</string>
+				<key>archive_format</key>
+				<string>%FORMAT%</string>
 			</dict>
 			<key>Processor</key>
 			<string>Unarchiver</string>
