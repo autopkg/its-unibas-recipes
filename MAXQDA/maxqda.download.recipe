@@ -14,7 +14,7 @@
 		<key>NAME</key>
 		<string>MAXQDA</string>
 		<key>URL</key>
-		<string>https://www.maxqda.com/de/updates/%VERSION%/MAXQDA%VERSION%.dmg</string>
+		<string>https://www.maxqda.com/download/maxqdademo-mac</string>
 		<key>VERSION</key>
 		<string>24</string>
 	</dict>
