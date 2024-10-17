@@ -8,10 +8,10 @@
 	<string>com.github.its-unibas.download.MapleUpdate</string>
 	<key>Input</key>
 	<dict>
+		<key>MajorVersion</key>
+		<string>2024</string>
 		<key>NAME</key>
 		<string>MapleUpdate</string>
-		<key>MajorVersion</key>
-		<string>2021</string>
 	</dict>
 	<key>MiniumumVersion</key>
 	<string>1.0</string>
@@ -20,27 +20,29 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>MajorVersion</key>
-				<string>%MajorVersion%</string>
+				<key>re_pattern</key>
+				<string>href="(/support/downloads/m%MajorVersion%_\d+update.aspx)"</string>
+				<key>url</key>
+				<string>https://de.maplesoft.com/support/downloads/index.aspx</string>
 			</dict>
 			<key>Processor</key>
-			<string>MapleUpdateURLProvider</string>
+			<string>URLTextSearcher</string>
 		</dict>
 		<dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%url%</string>
-                <key>filename</key>
-                <string>%NAME%.dmg</string>
-            </dict>
-        </dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+				<key>url</key>
+				<string>https://de.maplesoft.com%match%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
 		<dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
 	</array>
 </dict>
 </plist>
