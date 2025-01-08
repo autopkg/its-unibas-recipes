@@ -37,7 +37,7 @@
     <key>MinimumVersion</key>
     <string>0.4.2</string>
     <key>ParentRecipe</key>
-    <string>com.github.its-unibas.download.erase-install</string>
+    <string>com.github.grahampugh.recipes.download.erase-install</string>
     <key>Process</key>
     <array>
         <dict>
