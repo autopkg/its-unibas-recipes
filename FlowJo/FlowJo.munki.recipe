@@ -76,11 +76,11 @@ rm -rf "/Applications/Plugins for FlowJo"
             <key>Arguments</key>
             <dict>
                 <key>re_pattern</key>
-                <string>.*\n*v10 Requirements.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*.*\n*MacOS ([0-9]*\.[0-9]+)</string>
+                <string>OS X ([0-9]+(\.[0-9]+)+) or later</string>
                 <key>result_output_var_name</key>
                 <string>min_os_ver</string>
                 <key>url</key>
-                <string>https://www.flowjo.com/solutions/flowjo/downloads/previous-versions</string>
+                <string>https://flowjo.com/flowjo/download</string>
             </dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
