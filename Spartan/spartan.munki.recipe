@@ -58,7 +58,7 @@
 					<key>plist_keys</key>
 					<dict>
 						<key>CFBundleShortVersionString</key>
-						<string>display_name</string>
+						<string>version</string>
 					</dict>
 
 					<key>info_path</key>
@@ -72,8 +72,6 @@
 				<dict>
 					<key>additional_pkginfo</key>
 					<dict>
-						<key>display_name</key>
-						<string>%display_name%</string>
 						<key>version</key>
 						<string>%version%</string>
 					</dict>
