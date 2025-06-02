@@ -3,7 +3,14 @@
 <plist version="1.0">
     <dict>
         <key>Description</key>
-        <string>Downloads the latest PyCharm disk image and imports into Munki.</string>
+        <string>Downloads the latest PyCharm disk image and imports into Munki.
+Defaults to the PyCharm Community Edition for intel architecture. Override the following keys for other versions:
+For macOS Silicon: 
+    - ARCHITECTURE == "M1"
+For PyCharm Professional Edition: 
+    - CODESIGNATUREAPPNAME == "PyCharm"
+    - CODESIGNATUREIDENTIFIER == "com.jetbrains.pycharm"
+    - EDITION == "PCP"</string>
         <key>Identifier</key>
         <string>com.github.its-unibas.munki.PyCharm</string>
         <key>Input</key>
@@ -12,8 +19,6 @@
             <string>apps/JetBrains/PyCharm</string>
             <key>NAME</key>
             <string>PyCharm</string>
-            <key>edition</key>
-            <string>community</string>
             <key>pkginfo</key>
             <dict>
                 <key>catalogs</key>
@@ -29,7 +34,7 @@
                 <key>developer</key>
                 <string>JetBrains</string>
                 <key>display_name</key>
-                <string>PyCharm Community Edition</string>
+                <string>%NAME%</string>
                 <key>name</key>
                 <string>%NAME%</string>
                 <key>unattended_install</key>
