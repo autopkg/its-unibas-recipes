@@ -3,19 +3,28 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest PyCharm disk image.</string>
+    <string>Downloads latest PyCharm disk image.
+Defaults to the PyCharm Community Edition for intel architecture. Override the following keys for other versions:
+For macOS Silicon: 
+    - ARCHITECTURE == "M1"
+For PyCharm Professional Edition: 
+    - CODESIGNATUREAPPNAME == "PyCharm"
+    - CODESIGNATUREIDENTIFIER == "com.jetbrains.pycharm"
+    - EDITION == "PCP"</string>
     <key>Identifier</key>
     <string>com.github.its-unibas.download.PyCharm</string>
     <key>Input</key>
     <dict>
+        <key>ARCHITECTURE</key>
+        <string></string>
+        <key>CODESIGNATUREAPPNAME</key>
+        <string>PyCharm CE</string>
+        <key>CODESIGNATUREIDENTIFIER</key>
+        <string>com.jetbrains.pycharm.ce</string>
+        <key>EDITION</key>
+        <string>PCC</string>
         <key>NAME</key>
         <string>PyCharm</string>
-        <key>edition</key>
-        <string>community</string>
-        <key>CODESIGNATUREAPPNAME</key>
-        <string>PyCharm CE.app</string>
-        <key>CODESIGNATUREREQUIREMENT</key>
-        <string>identifier "com.jetbrains.pycharm.ce" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2ZEFAR8TH3"</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.6.0</string>
@@ -23,17 +32,17 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>PyCharmURLProvider</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+                <key>curl_opts</key>
+                <array>
+                    <string>--location</string>
+                </array>
+                <key>prefetch_filename</key>
+                <true/>
                 <key>url</key>
-                <string>%url%</string>
-                <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>https://download.jetbrains.com/product?code=%EDITION%&amp;latest&amp;distribution=mac%ARCHITECTURE%</string>
             </dict>
         </dict>
         <dict>
@@ -46,9 +55,9 @@
           <key>Arguments</key>
           <dict>
             <key>input_path</key>
-            <string>%pathname%/%CODESIGNATUREAPPNAME%</string>
+            <string>%pathname%/%CODESIGNATUREAPPNAME%.app</string>
             <key>requirement</key>
-            <string>%CODESIGNATUREREQUIREMENT%</string>
+            <string>identifier "%CODESIGNATUREIDENTIFIER%" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2ZEFAR8TH3"</string>
           </dict>
         </dict>
     </array>
