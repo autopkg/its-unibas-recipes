@@ -4,11 +4,8 @@
 <dict>
     <key>Description</key>
     <string>Downloads latest Intellij disk image. Recipe inspired by https://github.com/facebook/Recipes-for-AutoPkg.
-Defaults to the Intellij Community Edition for intel architecture. Add the following keys to your input for other versions:
-For macOS Silicon:
-    - arch == "aarch64"
-For Intellij Ultimate:
-    - edition == "U"</string>
+Defaults to the Intellij Community Edition for intel architecture. Add the following key to your input for macOS Silicon version:
+    - arch == "aarch64"</string>
     <key>Identifier</key>
     <string>com.github.its-unibas.download.Intellij</string>
     <key>Input</key>
