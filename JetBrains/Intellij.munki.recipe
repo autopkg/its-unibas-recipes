@@ -3,11 +3,18 @@
 <plist version="1.0">
     <dict>
         <key>Description</key>
-        <string>Downloads the latest Intellij disk image and imports into Munki.</string>
+        <string>Downloads the latest Intellij disk image and imports into Munki.
+Defaults to the Intellij Community Edition for intel architecture. Override the following keys for other versions:
+For macOS Silicon:
+    - arch == "aarch64"
+For Intellij Ultimate:
+    - edition == "U"</string>
         <key>Identifier</key>
         <string>com.github.its-unibas.munki.Intellij</string>
         <key>Input</key>
         <dict>
+            <key>arch</key>
+            <string>intel</string>
             <key>MUNKI_REPO_SUBDIR</key>
             <string>apps/JetBrains/Intellij</string>
             <key>NAME</key>
