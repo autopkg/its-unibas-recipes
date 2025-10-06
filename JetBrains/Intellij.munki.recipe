@@ -3,11 +3,20 @@
 <plist version="1.0">
     <dict>
         <key>Description</key>
-        <string>Downloads the latest Intellij disk image and imports into Munki.</string>
+        <string>Downloads the latest Intellij disk image and imports into Munki.
+Defaults to the Intellij Community Edition for intel architecture. Override the following keys for other versions:
+For macOS Silicon: 
+    - arch == "aarch64"
+For IntelliJ Ultimate Edition: 
+    - CODESIGNATUREAPPNAME == "IntelliJ IDEA.app"
+    - CODESIGNATUREREQUIREMENT == "identifier "com.jetbrains.intellij" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2ZEFAR8TH3""
+    - edition == "U"</string>
         <key>Identifier</key>
         <string>com.github.its-unibas.munki.Intellij</string>
         <key>Input</key>
         <dict>
+            <key>arch</key>
+            <string>intel</string>
             <key>MUNKI_REPO_SUBDIR</key>
             <string>apps/JetBrains/Intellij</string>
             <key>NAME</key>
@@ -27,7 +36,7 @@
                 <key>developer</key>
                 <string>JetBrains</string>
                 <key>display_name</key>
-                <string>Intellij Community Edition</string>
+                <string>%NAME%</string>
                 <key>name</key>
                 <string>%NAME%</string>
                 <key>unattended_install</key>

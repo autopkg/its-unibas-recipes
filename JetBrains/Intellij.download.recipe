@@ -3,17 +3,28 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest Intellij disk image. Recipe inspired by https://github.com/facebook/Recipes-for-AutoPkg.</string>
+    <string>Downloads latest Intellij disk image. Recipe inspired by https://github.com/facebook/Recipes-for-AutoPkg.
+Defaults to the Intellij Community Edition for intel architecture. Override the following keys for other versions:
+For macOS Silicon: 
+    - arch == "aarch64"
+For IntelliJ Ultimate Edition: 
+    - CODESIGNATUREAPPNAME == "IntelliJ IDEA.app"
+    - CODESIGNATUREREQUIREMENT == "identifier "com.jetbrains.intellij" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2ZEFAR8TH3""
+    - edition == "U"</string>
     <key>Identifier</key>
     <string>com.github.its-unibas.download.Intellij</string>
     <key>Input</key>
     <dict>
+        <key>arch</key>
+        <string>intel</string>
         <key>NAME</key>
         <string>Intellij</string>
         <key>CODESIGNATUREAPPNAME</key>
         <string>IntelliJ IDEA CE.app</string>
         <key>CODESIGNATUREREQUIREMENT</key>
         <string>anchor apple generic and identifier "com.jetbrains.intellij.ce" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */) and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2ZEFAR8TH3"</string>
+        <key>edition</key>
+        <string>C</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.6.0</string>
