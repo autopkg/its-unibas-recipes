@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.its-unibas.munki.IntellijUltimate</string>
+	<string>com.github.its-unibas.munki.IntellijUltimate-Intel</string>
 	<key>Input</key>
 	<dict>
 		<key>CODESIGNATUREAPPNAME</key>
@@ -11,9 +11,11 @@
 		<key>CODESIGNATUREREQUIREMENT</key>
 		<string>identifier "com.jetbrains.intellij" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2ZEFAR8TH3"</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/JetBrains/Intellij</string>
+		<string>apps/JetBrains/Intellij/x86_64</string>
 		<key>NAME</key>
 		<string>IntellijUltimate</string>
+		<key>arch</key>
+		<string>intel</string>
 		<key>edition</key>
 		<string>U</string>
 		<key>pkginfo</key>
@@ -28,6 +30,10 @@
 			<string>Intellij Ultimate Edition</string>
 			<key>name</key>
 			<string>%NAME%</string>
+			<key>supported_architectures</key>
+			<array>
+				<string>x86_64</string>
+			</array>
 			<key>unattended_install</key>
 			<true/>
 		</dict>
