@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>com.github.its-unibas.munki.IntellijUltimate-ARM</string>
+	<key>Input</key>
+	<dict>
+		<key>CODESIGNATUREAPPNAME</key>
+		<string>IntelliJ IDEA.app</string>
+		<key>CODESIGNATUREREQUIREMENT</key>
+		<string>identifier "com.jetbrains.intellij" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2ZEFAR8TH3"</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/JetBrains/Intellij/arm64</string>
+		<key>NAME</key>
+		<string>IntellijUltimate</string>
+		<key>arch</key>
+		<string>aarch64</string>
+		<key>edition</key>
+		<string>U</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Lightweight IDE for Java SE, Groovy and Scala development.</string>
+			<key>display_name</key>
+			<string>Intellij Ultimate Edition</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>supported_architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.its-unibas.munki.Intellij</string>
+	<key>Process</key>
+	<array/>
+</dict>
+</plist>
