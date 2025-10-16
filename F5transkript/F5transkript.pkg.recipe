@@ -84,8 +84,6 @@
 					</array>
 					<key>id</key>
 					<string>de.audiotranskription.F5</string>
-					<key>options</key>
-					<string>purge_ds_store</string>
 					<key>pkgname</key>
 					<string>%NAME%-%version%</string>
 					<key>scripts</key>
