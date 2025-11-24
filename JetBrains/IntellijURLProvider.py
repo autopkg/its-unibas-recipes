@@ -42,7 +42,7 @@ class IntellijURLProvider(URLGetter):
             "required": False,
             "description": (
                 'Target architecture: "intel" (default) or "aarch64" '
-                '(Apple Silicon).'
+                "(Apple Silicon)."
             ),
         },
     }
@@ -103,9 +103,13 @@ class IntellijURLProvider(URLGetter):
         edition = self.env.get("edition", "C")
         arch = self.env.get("arch", "intel")
         if arch == "aarch64":
-            download_url = "https://download.jetbrains.com/idea/" "ideaI%s-%s-aarch64.dmg" % (
-                edition,
-                version,
+            download_url = (
+                "https://download.jetbrains.com/idea/"
+                "ideaI%s-%s-aarch64.dmg"
+                % (
+                    edition,
+                    version,
+                )
             )
         else:
             download_url = "https://download.jetbrains.com/idea/" "ideaI%s-%s.dmg" % (
