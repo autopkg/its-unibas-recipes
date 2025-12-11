@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>SWITCHcast</string>
 		<key>URL</key>
-		<string>https://help.switch.ch/cast/recording/mobile-equipment/recording-software/switchcast-recorder/download/</string>
+		<string>https://help.switch.ch/cast/switchcast-opencast/recording/mobile-equipment/recording-software/switchcast-recorder/download/</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
