@@ -1,5 +1,6 @@
 #!/usr/local/autopkg/python
 """Intellij URL Provider."""
+
 # Copyright (c) 2015-present, Facebook, Inc.
 # All rights reserved.
 #
