@@ -40,6 +40,8 @@ Ihre Daten immer sicher dabei: Der akademische Cloud-Storage-Dienst lässt sich 
 			<string>SWITCH</string>
 			<key>display_name</key>
 			<string>SWITCHdrive</string>
+			<key>name</key>
+			<string>%NAME%3</string>
 			<key>unattended_install</key>
 			<true/>
 			<key>unattended_uninstall</key>
