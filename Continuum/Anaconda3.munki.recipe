@@ -36,9 +36,9 @@ For information about working with Anaconda have a look at the following documen
 			<key>developer</key>
 			<string>%MUNKI_DEVELOPER%</string>
 			<key>display_name</key>
-			<string>%NAME%3</string>
+			<string>%NAME%</string>
 			<key>name</key>
-			<string>%NAME%3</string>
+			<string>%NAME%</string>
 			<key>requires</key>
 			<array>
 				<string>python3</string>

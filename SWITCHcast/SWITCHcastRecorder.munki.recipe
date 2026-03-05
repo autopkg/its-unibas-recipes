@@ -40,7 +40,7 @@ See the following sections about technical requirements, download and installati
 			<key>display_name</key>
 			<string>SWITCHcast Recorder</string>
 			<key>name</key>
-			<string>%NAME%3</string>
+			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<false/>
 			<key>unattended_uninstall</key>
