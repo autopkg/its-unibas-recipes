@@ -18,7 +18,7 @@
     	<string>(https://downloads.bdaccessportal.com/v11/mac/x64/FlowJo-(?P&lt;version&gt;[0-9][0-9].[0-9]?[0-9].[0-9]?[0-9])-x64.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>1.0.0</string>
+    <string>1.1</string>
     <key>Process</key>
     <array>
       <dict>
