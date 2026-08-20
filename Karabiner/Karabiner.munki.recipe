@@ -37,7 +37,7 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.6.1</string>
+	<string>1.1</string>
 	<key>ParentRecipe</key>
 	<string>com.github.its-unibas.download.Karabiner</string>
 	<key>Process</key>

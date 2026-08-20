@@ -27,7 +27,7 @@ For PyCharm Professional Edition:
         <string>PyCharm</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.6.0</string>
+    <string>1.4</string>
     <key>Process</key>
     <array>
         <dict>

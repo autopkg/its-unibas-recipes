@@ -44,7 +44,7 @@ For IntelliJ Ultimate Edition:
             </dict>
         </dict>
         <key>MinimumVersion</key>
-        <string>0.2.0</string>
+        <string>1.1</string>
         <key>ParentRecipe</key>
         <string>com.github.its-unibas.download.Intellij</string>
         <key>Process</key>
