@@ -5,7 +5,9 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of jsesh and imports it into Munki.</string>
+	<string>Downloads the latest version of jsesh and imports it into Munki.
+		Define 'm1' or 'intel' in ARCH to download the according Architecture. Standard is m1.
+	</string>
 	<key>Identifier</key>
 	<string>com.github.its-unibas.munki.jsesh</string>
 	<key>Input</key>
@@ -14,6 +16,8 @@
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
 		<string>jsesh</string>
+		<key>ARCH</key>
+		<string>m1</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
