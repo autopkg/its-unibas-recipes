@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Description</key>
+	<string>Warning: This recipe is no longer maintained by ITS Uni Basel. Use a recipe from another repo or maintain your own override.</string>
 	<key>Identifier</key>
 	<string>com.github.its-unibas.munki.IntellijUltimate-Intel</string>
 	<key>Input</key>
@@ -41,6 +43,16 @@
 	<key>ParentRecipe</key>
 	<string>com.github.its-unibas.munki.Intellij</string>
 	<key>Process</key>
-	<array/>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>DeprecationWarning</string>
+			<key>Arguments</key>
+			<dict>
+				<key>warning_message</key>
+				<string>This recipe is no longer maintained by ITS Uni Basel. Use a recipe from another repo or maintain your own override.</string>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
