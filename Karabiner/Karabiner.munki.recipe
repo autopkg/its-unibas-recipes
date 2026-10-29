@@ -5,7 +5,9 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v1.0.3 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Karabiner and imports it into Munki.</string>
+	<string>Downloads the latest version of Karabiner and imports it into Munki.
+			Warning: This recipe is no longer maintained by ITS Uni Basel. Use a recipe from another repo or maintain your own override.
+	</string>
 	<key>Identifier</key>
 	<string>com.github.its-unibas.munki.Karabiner</string>
 	<key>Input</key>
@@ -42,6 +44,15 @@
 	<string>com.github.its-unibas.download.Karabiner</string>
 	<key>Process</key>
 	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>warning_message</key>
+				<string>This recipe is no longer maintained by ITS Uni Basel. Use a recipe from another repo or maintain your own override.</string>
+			</dict>
+			<key>Processor</key>
+			<string>DeprecationWarning</string>
+		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
