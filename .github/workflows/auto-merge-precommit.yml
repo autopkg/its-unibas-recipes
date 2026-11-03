@@ -1,0 +1,69 @@
+name: Auto-merge pre-commit.ci updates
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto_approve_and_merge:
+    if: ${{
+      (github.event.pull_request.user.login == 'app/pre-commit-ci' ||
+       github.event.pull_request.user.login == 'pre-commit-ci[bot]') &&
+      startsWith(github.event.pull_request.title, '[pre-commit.ci]')
+      }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure the PR only changes the pre-commit config
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          mapfile -t changed_files < <(
+            gh pr view "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --json files --jq '.files[].path'
+          )
+
+          if [ "${#changed_files[@]}" -ne 1 ] || [ "${changed_files[0]}" != ".pre-commit-config.yaml" ]; then
+            echo "result=not_applicable" >> "$GITHUB_OUTPUT"
+            echo "Skipping approval: only .pre-commit-config.yaml may be changed."
+            exit 0
+          fi
+
+          echo "result=eligible" >> "$GITHUB_OUTPUT"
+
+      - name: Approve the pre-commit update PR
+        if: steps.check.outputs.result == 'eligible'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: gh pr review "$PR_NUMBER" --approve --repo "$GITHUB_REPOSITORY"
+
+      - name: Enable auto-merge for the pre-commit update PR
+        if: steps.check.outputs.result == 'eligible'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: gh pr merge "$PR_NUMBER" --auto --squash --delete-branch --repo "$GITHUB_REPOSITORY"
+
+      - name: Notify code owners of the workflow result
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          RESULT: ${{ steps.check.outputs.result }}
+        run: |
+          if [ "$RESULT" = "eligible" ]; then
+            BODY="@aschwanb pre-commit update was auto-approved and auto-merge was enabled for .pre-commit-config.yaml."
+          else
+            BODY="@aschwanb pre-commit update was evaluated, but it was not applicable for auto-merge because the PR did not only change .pre-commit-config.yaml."
+          fi
+
+          gh pr comment "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --body "$BODY"
