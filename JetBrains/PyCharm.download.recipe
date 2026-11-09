@@ -4,13 +4,11 @@
 <dict>
     <key>Description</key>
     <string>Downloads latest PyCharm disk image.
-Defaults to the PyCharm Community Edition for intel architecture. Override the following keys for other versions:
+Defaults to PyCharm for intel architecture. Override the following keys for other versions:
 For macOS Silicon: 
     - ARCHITECTURE == "M1"
-For PyCharm Professional Edition: 
-    - CODESIGNATUREAPPNAME == "PyCharm"
-    - CODESIGNATUREIDENTIFIER == "com.jetbrains.pycharm"
-    - EDITION == "PCP"</string>
+Note: JetBrains discontinued PyCharm Community Edition (last release 2025.3) and
+merged it into the unified PyCharm product (EDITION "PCP").</string>
     <key>Identifier</key>
     <string>com.github.its-unibas.download.PyCharm</string>
     <key>Input</key>
@@ -18,11 +16,11 @@ For PyCharm Professional Edition:
         <key>ARCHITECTURE</key>
         <string></string>
         <key>CODESIGNATUREAPPNAME</key>
-        <string>PyCharm CE</string>
+        <string>PyCharm</string>
         <key>CODESIGNATUREIDENTIFIER</key>
-        <string>com.jetbrains.pycharm.ce</string>
+        <string>com.jetbrains.pycharm</string>
         <key>EDITION</key>
-        <string>PCC</string>
+        <string>PCP</string>
         <key>NAME</key>
         <string>PyCharm</string>
     </dict>
@@ -39,8 +37,8 @@ For PyCharm Professional Edition:
                 <array>
                     <string>--location</string>
                 </array>
-                <key>prefetch_filename</key>
-                <true/>
+                <key>filename</key>
+                <string>%NAME%.dmg</string>
                 <key>url</key>
                 <string>https://download.jetbrains.com/product?code=%EDITION%&amp;latest&amp;distribution=mac%ARCHITECTURE%</string>
             </dict>
